@@ -23,3 +23,7 @@ Route::get('/tweets', function() {
     sleep(2);
     return Tweet::with('user:id,name,username,avatar')->latest()->paginate();
 });
+
+Route::get('/tweets/{tweet}', function(Tweet $tweet){
+    return $tweet->load('user:id,name,username,avatar');
+});
