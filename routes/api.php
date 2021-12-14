@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/tweets', function() {
-    sleep(2);
     return Tweet::with('user:id,name,username,avatar')->latest()->paginate();
 });
 
